@@ -65,6 +65,12 @@ body.theme-dark .resume .resume-item h5{
   background: color-mix(in srgb, var(--bg) 85%, #000 15%);
   border: 1px solid var(--border);
 }
+/* Resume year pill color (light theme) */
+.resume .resume-item h5{
+  background: color-mix(in srgb, var(--accent) 10%, #ffffff);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
+  color: #333333;
+}
 body.theme-dark .resume .resume-item{
   border-left-color: var(--accent);
 }
