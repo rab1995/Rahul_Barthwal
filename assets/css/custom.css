@@ -1,0 +1,384 @@
+/* assets/css/custom.css */
+
+/*
+  Goals:
+  - Add interactivity & polish without changing written content.
+  - Keep the original template look for CV (resume) + Workshops (portfolio).
+  - Provide a consistent brand accent across light/dark.
+*/
+
+:root{
+  /* Brand accent (Kelly template vibe) */
+  --accent: #902828;
+  --accent-2: #902828;
+
+  /* Light surfaces (subtle, mostly used for new UI) */
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: rgba(17,24,39,.72);
+  --card: #ffffff;
+  --border: rgba(17,24,39,.12);
+  --shadow: 0 10px 30px rgba(17,24,39,.10);
+  --radius: 16px;
+}
+
+/* Dark mode keeps the same accent, only switches neutrals */
+body.theme-dark{
+  --bg: #0b1220;
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+  --card: rgba(255,255,255,.05);
+  --border: rgba(255,255,255,.14);
+  --shadow: 0 18px 50px rgba(0,0,0,.40);
+}
+
+html{ scroll-behavior: smooth; }
+
+/* Use scroll offset without changing layout */
+section{ scroll-margin-top: 90px; }
+
+body.theme-dark{
+  background: var(--bg);
+  color: var(--text);
+}
+body.theme-dark p,
+body.theme-dark li{ color: var(--muted); }
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4,
+body.theme-dark h5{ color: var(--text); }
+body.theme-dark .section-title h2,
+body.theme-dark .resume .resume-title,
+body.theme-dark .contact .info h4{
+  color: var(--text);
+}
+body.theme-dark .section-title h2::after{
+  background: currentColor;
+}
+/* Resume readability in dark mode */
+body.theme-dark .resume .resume-item h4{
+  color: var(--text);
+}
+body.theme-dark .resume .resume-item h5{
+  color: var(--text);
+  background: color-mix(in srgb, var(--bg) 85%, #000 15%);
+  border: 1px solid var(--border);
+}
+body.theme-dark .resume .resume-item{
+  border-left-color: var(--accent);
+}
+body.theme-dark .resume .resume-item::before{
+  background: var(--bg);
+  border-color: var(--accent);
+}
+/* Keep underline same color as text */
+body.theme-dark u,
+body.theme-dark u *{
+  color: inherit;
+  text-decoration-color: currentColor;
+}
+/* Ensure publication underlines follow text color in all themes */
+#publications u,
+#publications u *{
+  color: inherit;
+  text-decoration-color: currentColor;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+/* Skills visibility in dark mode */
+body.theme-dark .skills .progress .skill,
+body.theme-dark .skills .progress .skill .val{
+  color: var(--text);
+}
+body.theme-dark .skills .progress-bar-wrap{
+  background: color-mix(in srgb, var(--bg) 70%, #ffffff 30%);
+}
+body.theme-dark .skills .progress-bar{
+  background-color: var(--accent);
+}
+
+/* Free visitor counters link color */
+a[href*="freevisitorcounters.com"]{
+  color: #111111 !important;
+}
+body.theme-dark #header{
+  background: color-mix(in srgb, var(--bg) 92%, #000 8%);
+  border-bottom: 1px solid var(--border);
+}
+body.theme-dark #header .logo a{
+  color: var(--text);
+}
+body.theme-dark .header-social-links a{
+  color: var(--muted);
+}
+body.theme-dark .header-social-links a:hover{
+  color: var(--accent);
+}
+body.theme-dark .navbar a,
+body.theme-dark .navbar a:focus{
+  color: var(--text);
+}
+body.theme-dark .navbar a:hover,
+body.theme-dark .navbar li:hover>a{
+  color: var(--accent);
+}
+body.theme-dark .navbar>ul>li>a:before{
+  background-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+/* Header: subtle glass only (keeps original layout) */
+#header.fixed-top{
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Navbar active & hover stays on brand */
+.nav-menu a.active,
+.nav-menu a:hover{ color: var(--accent) !important; }
+
+/* ---------- Small UI elements introduced by custom.js ---------- */
+
+/* Theme toggle + small buttons */
+.btn-soft{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.5rem .75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  color: inherit;
+  box-shadow: none;
+  transition: transform .15s ease, border-color .15s ease;
+}
+.btn-soft:hover{
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+}
+.btn-accent{
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  background: color-mix(in srgb, var(--accent) 12%, var(--card));
+}
+
+/* About section logos */
+.about .about-logo{
+  display: block;
+  margin-top: 10px;
+}
+body.theme-dark .about .about-logo{
+  background: #ffffff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  filter: none;
+}
+
+/* Accessible focus (only adds, doesn’t restyle) */
+a:focus, button:focus, input:focus, textarea:focus{
+  outline: 3px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  outline-offset: 2px;
+}
+
+/* Toast */
+.toast-lite{
+  position: fixed;
+  inset: auto 18px 18px auto;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  box-shadow: var(--shadow);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.toast-lite.show{ opacity: 1; transform: translateY(0); }
+
+/* Publications search row (non-invasive) */
+.search-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin: 10px 0 18px 0;
+}
+.search-row input{
+  flex: 1;
+  min-width: 240px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: inherit;
+}
+
+/* Hover-to-copy affordance */
+.copy-hover{
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dashed color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.copy-hover:hover{
+  border-bottom-color: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.copy-hover::after{
+  content: attr(data-copy-hint);
+  position: absolute;
+  left: 0;
+  top: -36px;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 1;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+.copy-hover:hover::after{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+}
+
+/* Top-right hamburger + off-canvas section drawer */
+.navbar{
+  display: flex;
+  align-items: center;
+}
+.drawer-toggle{
+  margin-left: 10px;
+}
+
+/* Hide desktop nav on mobile/tablet and use mobile toggle */
+@media (max-width: 1200px){
+  #navbar ul{
+    display: none;
+  }
+  .mobile-nav-toggle{
+    display: block;
+  }
+  #drawerToggle{
+    display: none;
+  }
+}
+
+.drawer-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 998;
+}
+
+.section-drawer{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(360px, 92vw);
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transform: translateX(105%);
+  transition: transform .25s ease;
+  z-index: 999;
+  padding: 14px;
+}
+
+.drawer-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.drawer-title{
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.drawer-links{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 12px;
+}
+
+.drawer-link{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.drawer-link:hover{
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, var(--card));
+}
+
+.drawer-link.active{
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  background: color-mix(in srgb, var(--accent) 12%, var(--card));
+}
+
+body.drawer-open .drawer-backdrop{
+  opacity: 1;
+  pointer-events: auto;
+}
+body.drawer-open .section-drawer{
+  transform: translateX(0);
+}
+
+/* Dark mode: keep template sections readable */
+body.theme-dark .section-bg,
+body.theme-dark .light-background{
+  background: color-mix(in srgb, var(--bg) 88%, #000 12%);
+}
+/* Reddish background for Communicated Works + Workshops */
+#preprints.section-bg,
+#portfolio.section-bg,
+#miscellaneous.section-bg{
+  background: color-mix(in srgb, var(--accent) 4%, #ffffff);
+}
+body.theme-dark #preprints.section-bg,
+body.theme-dark #portfolio.section-bg,
+body.theme-dark #miscellaneous.section-bg{
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+}
+body.theme-dark a{ color: color-mix(in srgb, var(--accent) 85%, white 15%); }
+body.theme-dark a:hover{ color: color-mix(in srgb, var(--accent) 95%, white 5%); }
+/* Match light theme flow (avoid filled cards) */
+body.theme-dark .resume-item,
+body.theme-dark .testimonials .testimonial-item,
+body.theme-dark .contact .info{
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+/* Keep workshop items flowing like light theme (no box cards) */
+body.theme-dark .portfolio-item{
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
