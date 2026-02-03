@@ -262,6 +262,14 @@ a:focus, button:focus, input:focus, textarea:focus{
 }
 .toast-lite.show{ opacity: 1; transform: translateY(0); }
 
+/* About section welcome line */
+.welcome-line{
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
 /* Publications search row (non-invasive) */
 .search-row{
   display:flex;
@@ -467,4 +475,59 @@ body.theme-dark .portfolio-item{
   background: transparent;
   border-color: transparent;
   box-shadow: none;
+}
+
+/* Services icons: replace SVG blob with a cleaner badge */
+.services .icon-box .icon{
+  width: 84px;
+  height: 84px;
+  border-radius: 22px;
+  background: color-mix(in srgb, #ffffff 88%, var(--accent) 12%);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
+  box-shadow: 0 10px 24px rgba(17,24,39,.12);
+}
+.services .icon-box .icon svg{
+  display: none;
+}
+.services .iconbox-blue .icon{
+  background: color-mix(in srgb, #b18282 14%, #ffffff);
+  border-color: color-mix(in srgb, #b18282 30%, var(--border));
+}
+.services .iconbox-blue:hover .icon{
+  background: #b18282;
+}
+.services .iconbox-orange .icon{
+  background: color-mix(in srgb, #ffa76e 16%, #ffffff);
+  border-color: color-mix(in srgb, #ffa76e 32%, var(--border));
+}
+.services .iconbox-orange:hover .icon{
+  background: #ffa76e;
+}
+.services .iconbox-pink .icon{
+  background: color-mix(in srgb, #e80368 14%, #ffffff);
+  border-color: color-mix(in srgb, #e80368 30%, var(--border));
+}
+.services .iconbox-pink:hover .icon{
+  background: #e80368;
+}
+.services .iconbox-yellow .icon{
+  background: color-mix(in srgb, #ffbb2c 18%, #ffffff);
+  border-color: color-mix(in srgb, #ffbb2c 32%, var(--border));
+}
+.services .iconbox-yellow:hover .icon{
+  background: #ffbb2c;
+}
+.services .iconbox-red .icon{
+  background: color-mix(in srgb, #ff5828 16%, #ffffff);
+  border-color: color-mix(in srgb, #ff5828 32%, var(--border));
+}
+.services .iconbox-red:hover .icon{
+  background: #ff5828;
+}
+.services .iconbox-teal .icon{
+  background: color-mix(in srgb, #6aa39e 14%, #ffffff);
+  border-color: color-mix(in srgb, #6aa39e 28%, var(--border));
+}
+.services .iconbox-teal:hover .icon{
+  background: #6aa39e;
 }
