@@ -52,7 +52,7 @@
     btn.id = "themeToggle";
     btn.className = "btn-soft btn-accent";
     btn.setAttribute("aria-label", "Toggle theme");
-    btn.innerHTML = `<i class="bi bi-moon-stars"></i><span class="d-none d-md-inline">Theme</span>`;
+    btn.innerHTML = `<i class="bi bi-moon-stars"></i>`;
 
     const social = $("#header .header-social-links");
     if (social) social.insertAdjacentElement("afterend", btn);
@@ -316,6 +316,5 @@
     mountPublicationsSearch();
     mountCopyHover();
     mountAOSOptions();
-    mountSectionDrawer();
   });
 })();
