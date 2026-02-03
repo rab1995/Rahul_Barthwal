@@ -326,13 +326,16 @@ a:focus, button:focus, input:focus, textarea:focus{
     flex-wrap: nowrap;
     gap: 8px;
   }
+  #header .logo{
+    margin-right: 6px;
+  }
   #navbar ul{ display: none !important; }
   .header-social-links{
     display: flex;
     align-items: center;
     gap: 6px;
     padding-right: 0;
-    margin-left: auto;
+    margin-left: 6px;
   }
   .header-social-links a{
     font-size: 14px;
