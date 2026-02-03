@@ -322,9 +322,27 @@ a:focus, button:focus, input:focus, textarea:focus{
 
 /* Mobile: hide section titles, keep contact links + theme/menu buttons */
 @media (max-width: 991px){
+  #header .container-fluid{
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
   #navbar ul{ display: none !important; }
   .header-social-links{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-right: 0;
     margin-left: auto;
+  }
+  .header-social-links a{
+    font-size: 14px;
+  }
+  #header .nav-toggle-btn{
+    height: 34px;
+    padding: 0 10px;
+  }
+  #themeToggle{
+    margin-left: 8px;
   }
 }
 
