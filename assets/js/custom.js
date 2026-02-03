@@ -54,9 +54,13 @@
     btn.setAttribute("aria-label", "Toggle theme");
     btn.innerHTML = `<i class="bi bi-moon-stars"></i>`;
 
-    const social = $("#header .header-social-links");
-    if (social) social.insertAdjacentElement("afterend", btn);
-    else header.appendChild(btn);
+    const navList = $("#navbar ul");
+    if (navList) navList.insertAdjacentElement("afterend", btn);
+    else {
+      const social = $("#header .header-social-links");
+      if (social) social.insertAdjacentElement("afterend", btn);
+      else header.appendChild(btn);
+    }
 
     const saved = localStorage.getItem("theme");
     if (saved === "dark") document.body.classList.add("theme-dark");
@@ -115,8 +119,8 @@
     const wrap = document.createElement("div");
     wrap.className = "search-row";
     wrap.innerHTML = `
-      <input id="pubSearch" type="search" placeholder="Search publications (author, title, journal, year)..." autocomplete="off">
-      <button class="btn-soft" type="button" id="pubClear"><i class="bi bi-x-circle"></i>Clear</button>
+      <input id="pubSearch" type="search" placeholder="Select publications" autocomplete="off">
+      <button class="btn-soft" type="button" id="pubClear" aria-label="Clear search"><i class="bi bi-x-circle"></i></button>
     `;
     titleBlock.insertAdjacentElement("afterend", wrap);
 
@@ -199,38 +203,27 @@
     const main = $("#main");
     if (!main) return;
 
-    // Only add on the one-page landing where section anchors exist
+    // Only add on pages where section anchors exist
     const sectionLinks = $$("#navbar a.nav-link.scrollto")
       .map(a => ({
         href: a.getAttribute("href"),
         label: (a.textContent || "").trim()
       }))
       .filter(x => x.href && x.href.startsWith("#") && document.getElementById(x.href.slice(1)));
-
-    if (sectionLinks.length < 3) return;
+    // Use existing menu button in header (placed in HTML)
+    const toggleBtn = $("#drawerToggle");
+    if (!toggleBtn) return;
+    if (sectionLinks.length === 0) {
+      toggleBtn.style.display = "none";
+      return;
+    }
 
     // Avoid duplicates
     if ($("#sectionDrawer")) return;
-
-    // Add toggle button in header (top-right)
-    const header = $("#header .container-fluid");
-    if (header && !$("#drawerToggle")) {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.id = "drawerToggle";
-      btn.className = "btn-soft drawer-toggle";
-      btn.setAttribute("aria-label", "Open section menu");
-      btn.setAttribute("aria-controls", "sectionDrawer");
-      btn.setAttribute("aria-expanded", "false");
-      btn.innerHTML = `<i class="bi bi-list"></i>`;
-
-      // Place it at the far right, after the last nav item (Contact)
-      const navEl = $("#navbar", header);
-      const navList = navEl ? navEl.querySelector("ul") : null;
-      if (navList) navList.insertAdjacentElement("afterend", btn);
-      else if (navEl) navEl.appendChild(btn);
-      else header.appendChild(btn);
-    }
+    toggleBtn.classList.add("drawer-toggle");
+    toggleBtn.setAttribute("aria-label", "Open section menu");
+    toggleBtn.setAttribute("aria-controls", "sectionDrawer");
+    toggleBtn.setAttribute("aria-expanded", "false");
 
     // Drawer markup
     const backdrop = document.createElement("div");
@@ -270,7 +263,6 @@
     document.body.appendChild(backdrop);
     document.body.appendChild(drawer);
 
-    const toggleBtn = $("#drawerToggle");
     const closeBtn = drawer.querySelector(".drawer-close");
 
     const open = () => {
@@ -284,7 +276,7 @@
       toggleBtn?.setAttribute("aria-expanded", "false");
     };
 
-    toggleBtn?.addEventListener("click", () => {
+    toggleBtn.addEventListener("click", () => {
       if (document.body.classList.contains("drawer-open")) close();
       else open();
     });
@@ -316,5 +308,6 @@
     mountPublicationsSearch();
     mountCopyHover();
     mountAOSOptions();
+    mountSectionDrawer();
   });
 })();
