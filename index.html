@@ -29,6 +29,8 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <link href="assets/css/custom.css" rel="stylesheet">
+
   <!-- =======================================================
   * Template Name: iPortfolio - v3.7.0
   * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
@@ -47,12 +49,12 @@
       <script src="https://kit.fontawesome.com/df953baff4.js" crossorigin="anonymous"></script>
       <h1 class="logo me-auto me-lg-0"><a href="index.html">Rahul</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid" loading="lazy"></a>-->
       <div class="header-social-links">
         <!--a href="https://orcid.org/0000-0002-5245-072X" class="orcid"><i class="fa-brands fa-orcid fa-2x"></i></a-->
-        <a href="https://www.researchgate.net/profile/Rahul-Barthwal" class="google-plus"><i class="fa-brands fa-researchgate fa-2x"></i></a>
-        <a href="https://de.linkedin.com/in/rahul-barthwal" class="linkedin"><i class="fa-brands fa-linkedin-in fa-2x"></i></a>
-        <a href="https://scholar.google.com/citations?user=wSxqM3wAAAAJ&hl=en" class="google-scholar"><i class="fa-brands fa-google-scholar fa-2x"></i></a>
+        <a aria-label="ResearchGate" href="https://www.researchgate.net/profile/Rahul-Barthwal" class="google-plus"><i class="fa-brands fa-researchgate fa-2x"></i></a>
+        <a aria-label="LinkedIn" href="https://de.linkedin.com/in/rahul-barthwal" class="linkedin"><i class="fa-brands fa-linkedin-in fa-2x"></i></a>
+        <a aria-label="Google Scholar" href="https://scholar.google.com/citations?user=wSxqM3wAAAAJ&hl=en" class="google-scholar"><i class="fa-brands fa-google-scholar fa-2x"></i></a>
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
@@ -76,14 +78,16 @@
 
 
   <!-- ======= Hero Section ======= -->
-  <!section id="hero" class="d-flex align-items-center">
-    <!div class="container d-flex flex-column align-items-left" data-aos="zoom-in" data-aos-delay="100">
-      <!h1 style="color: #E5E4E2">Rahul Barthwal</h1>
-      <!h2 style="text-align: left; color: #E5E4E2">I'm a postdoctoral researcher of Applied Mathematics</h2>
-       <!/div>
-  <!/section><!-- End Hero -->
+<!--
+<section id="hero" class="d-flex align-items-center">
+  <div class="container d-flex flex-column align-items-left" data-aos="zoom-in" data-aos-delay="100">
+    <h1 style="color: #E5E4E2">Rahul Barthwal</h1>
+    <h2 style="text-align: left; color: #E5E4E2">I'm a postdoctoral researcher of Applied Mathematics</h2>
+  </div>
+</section>
+-->
 
-  <main id="main">
+<main id="main">
 
     <!-- ======= About Section ======= -->
     <!-- About Section -->
@@ -103,9 +107,9 @@ I am always happy to talk about my research. Please feel free to reach out to me
 
         <div class="row gy-4 justify-content-center" data-aos="fade-right">
           <div class="col-lg-4">
-            <img src="assets/img/main.jpg" class="img-fluid" alt="">
-            <img src="assets/img/logo.png" class="img-fluid" alt="">
-              <img src="assets/img/uni-logos.png" class="img-fluid" alt="">
+            <img src="assets/img/main.jpg" class="img-fluid" alt="" loading="lazy">
+            <img src="assets/img/logo.png" class="img-fluid about-logo" alt="" loading="lazy">
+              <img src="assets/img/uni-logos.png" class="img-fluid about-logo" alt="" loading="lazy">
           </div>
           <div class="col-lg-8 content" data-aos="fade-left">
             <h2>Postdoctoral Researcher.</h2>
@@ -160,7 +164,7 @@ I am always happy to talk about my research. Please feel free to reach out to me
           <p>This is my list of publications. Most of them are available on arXiv, if you need a published version of any of the papers, do not hesitate to contact me.</p>
         </div>
           
-        <ul>
+         <ul>
             <li>Rahul Barthwal and Christian Rohde 
         <u> <a href="https://arxiv.org/abs/2502.17205"> A hyperbolic model for two-layer thin film flow with a perfectly soluble anti-surfactant</a></u>, Minor review at SIAM Journal on Applied Mathematics.</li>
       </ul>
@@ -224,15 +228,15 @@ I am always happy to talk about my research. Please feel free to reach out to me
            
             
             <ul>
-            <li> Rahul Barthwal, Firas Dhaouadi and Christian Rohde, 
-         <u> <a href="https://arxiv.org/abs/2512.04882">On hyperbolic approximations for a class of dispersive and diffusive-dispersive equations</a></u>, Submitted for publication.</li>
+            <li><b> Rahul Barthwal</b>, Firas Dhaouadi and Christian Rohde, <em>
+          <a href="https://arxiv.org/abs/2512.04882">On hyperbolic approximations for a class of dispersive and diffusive-dispersive equations</a></em>, Submitted for publication.</li>
       </ul>
             <ul>
-            <li>Rahul Barthwal and Christian Rohde, 
-          A hyperbolic relaxation system for a general class of fourth-order nonlinear PDEs, In preparation.</li>
+            <li><b> Rahul Barthwal</b> and Christian Rohde, <em>
+          A hyperbolic relaxation system for a general class of fourth-order nonlinear PDEs</em>, In preparation.</li>
       </ul>
             <ul>
-      <li>Rahul Barthwal and Christian Rohde, Convergence of an operator-splitting Lax-Friedrichs scheme for the Burgers-Hilbert equation, In preparation.</li>
+      <li><b>Rahul Barthwal</b> and Christian Rohde,<em> Convergence of an operator-splitting Lax-Friedrichs scheme for the Burgers-Hilbert equation</em>, In preparation.</li>
     </ul>
             
       </div>
@@ -651,7 +655,7 @@ I am always happy to talk about my research. Please feel free to reach out to me
           <div class="swiper-wrapper">
 <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -663,7 +667,7 @@ I am always happy to talk about my research. Please feel free to reach out to me
             </div>
              <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -675,7 +679,7 @@ which help me to study.                  <i class="bx bxs-quote-alt-right quote-
             </div>
  <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -687,7 +691,7 @@ which help me to study.                  <i class="bx bxs-quote-alt-right quote-
             </div>
              <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -700,7 +704,7 @@ which help me to study.                  <i class="bx bxs-quote-alt-right quote-
             
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -713,7 +717,7 @@ perspective.
             </div><!-- End testimonial item -->
              <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -726,7 +730,7 @@ concepts.
             </div><!-- End testimonial item -->
  <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -738,7 +742,7 @@ concepts.<i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </div><!-- End testimonial item -->
  <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -752,7 +756,7 @@ because of the atmosphere created by the professor. One of my favorite professor
             </div><!-- End testimonial item -->
  <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -763,7 +767,7 @@ It is great to learn about the theoretical background behind numeric methods and
             </div><!-- End testimonial item -->
  <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/download.png" class="testimonial-img" alt="" loading="lazy">
                 <h3>Anonymous</h3>
                 <h4>Student, University of Stuttgart</h4>
                 <p>
@@ -795,21 +799,27 @@ It is great to learn about the theoretical background behind numeric methods and
          <div class="col-lg-5 d-flex align-items-stretch">
            <div class="info">
              <div class="address">
-               <i class="bi bi-geo-alt"></i>
+               <a aria-label="Open location in Google Maps" href="https://www.google.com/maps/search/?api=1&query=Universit%C3%A4t%20Stuttgart%2C%20Stuttgart%2C%20Germany" target="_blank" rel="noopener">
+                 <i class="bi bi-geo-alt"></i>
+               </a>
                <h4>Location:</h4>
-               <p>Universität Stuttgart, Stuttgart, Germany</p>
+               <p><a href="https://www.google.com/maps/search/?api=1&query=Universit%C3%A4t%20Stuttgart%2C%20Stuttgart%2C%20Germany" target="_blank" rel="noopener">Universität Stuttgart, Stuttgart, Germany</a></p>
              </div>
 
              <div class="email">
-               <i class="bi bi-envelope"></i>
+               <a aria-label="Compose an email" href="mailto:rahul.barthwal@mathematik.uni-stuttgart.de">
+                 <i class="bi bi-envelope"></i>
+               </a>
                <h4>Email:</h4>
-               <p>rahul.barthwal@mathematik.uni-stuttgart.de</p>
+               <p><a href="mailto:rahul.barthwal@mathematik.uni-stuttgart.de">rahul.barthwal@mathematik.uni-stuttgart.de</a></p>
              </div>
 
              <div class="phone">
-               <i class="bi bi-phone"></i>
+               <a aria-label="Call phone number" href="tel:+4971168565884">
+                 <i class="bi bi-phone"></i>
+               </a>
                <h4>Call:</h4>
-               <p>+49 711 685 65884</p>
+               <p><a href="tel:+4971168565884">+49 711 685 65884</a></p>
              </div>
            </div>
 
@@ -879,13 +889,11 @@ It is great to learn about the theoretical background behind numeric methods and
 
    <!-- Template Main JS File -->
    <script src="assets/js/main.js"></script>
+   <script src="assets/js/custom.js" defer></script>
   </main>
  </body>
 
  </html>
-
-
-
 
 
 
