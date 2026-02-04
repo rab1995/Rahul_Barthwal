@@ -20,6 +20,12 @@
   --border: rgba(17,24,39,.12);
   --shadow: 0 10px 30px rgba(17,24,39,.10);
   --radius: 16px;
+
+  /* Underline system */
+  --underline-offset: 3px;
+  --underline-thickness: 1px;
+  --underline-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  --underline-color-hover: color-mix(in srgb, var(--accent) 70%, transparent);
 }
 
 /* Dark mode keeps the same accent, only switches neutrals */
@@ -78,19 +84,21 @@ body.theme-dark .resume .resume-item::before{
   background: var(--bg);
   border-color: var(--accent);
 }
-/* Keep underline same color as text */
-body.theme-dark u,
-body.theme-dark u *{
+/* Consistent underline spacing + hover across site */
+u,
+u *{
   color: inherit;
-  text-decoration-color: currentColor;
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--underline-thickness);
+  text-underline-offset: var(--underline-offset);
+  text-decoration-color: var(--underline-color);
+  text-decoration-skip-ink: auto;
 }
-/* Ensure publication underlines follow text color in all themes */
-#publications u,
-#publications u *{
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  padding-bottom: 2px;
+u:hover,
+u:hover *,
+u a:hover,
+a:hover u{
+  text-decoration-color: var(--underline-color-hover);
 }
 
 /* Publications: minimal, professional list */
@@ -113,7 +121,6 @@ body.theme-dark u *{
 }
 #publications a:hover{
   color: var(--accent);
-  border-bottom-color: color-mix(in srgb, var(--accent) 70%, transparent);
 }
 /* Skills visibility in dark mode */
 body.theme-dark .skills .progress .skill,
@@ -292,10 +299,14 @@ a:focus, button:focus, input:focus, textarea:focus{
   cursor: pointer;
   position: relative;
   display: inline-block;
-  border-bottom: 1px dashed color-mix(in srgb, var(--accent) 35%, transparent);
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: var(--underline-thickness);
+  text-underline-offset: var(--underline-offset);
+  text-decoration-color: var(--underline-color);
 }
 .copy-hover:hover{
-  border-bottom-color: color-mix(in srgb, var(--accent) 70%, transparent);
+  text-decoration-color: var(--underline-color-hover);
 }
 .copy-hover::after{
   content: attr(data-copy-hint);
