@@ -311,3 +311,47 @@
     mountSectionDrawer();
   });
 })();
+
+// assets/js/custom.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+
+  // 1. Instantly update active link on click and close the menu
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // Remove red color from everything
+      navLinks.forEach(nav => nav.classList.remove('active'));
+      // Add red color to exactly what was clicked
+      this.classList.add('active');
+
+      // Close the mobile menu automatically
+      const navbar = document.querySelector('#navbar');
+      if (navbar && navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile');
+        const toggleIcon = document.querySelector('.mobile-nav-toggle');
+        if (toggleIcon) {
+          toggleIcon.classList.remove('bi-x');
+          toggleIcon.classList.add('bi-list');
+        }
+      }
+    });
+  });
+
+  // 2. Accurately track scrolling with the new Top-Header layout
+  window.addEventListener('scroll', () => {
+    let position = window.scrollY + 150; // Offset accounts for your fixed top header
+
+    navLinks.forEach(link => {
+      if (!link.hash) return;
+      let section = document.querySelector(link.hash);
+      if (!section) return;
+
+      // If the scroll position is inside the section, make it active
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { passive: true });
+});
