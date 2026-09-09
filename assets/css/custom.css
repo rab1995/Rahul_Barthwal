@@ -542,3 +542,33 @@ body.theme-dark .portfolio-item{
 .services .iconbox-teal:hover .icon{
   background: #6aa39e;
 }
+/* =========================================
+   MOBILE OVERFLOW & ZOOM FIX
+   ========================================= */
+
+/* 1. Lock the website canvas to the device width */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* 2. Force long text (like the university email) to wrap */
+p, a, span, li {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 3. Keep the header strictly within the screen bounds */
+#header {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  box-sizing: border-box;
+}
+
+/* 4. Optionally shrink social icons slightly on very small screens to fit everything */
+@media (max-width: 400px) {
+  .header-social-links a {
+    font-size: 12px !important; 
+  }
+}
