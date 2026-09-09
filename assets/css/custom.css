@@ -572,3 +572,12 @@ p, a, span, li {
     font-size: 12px !important; 
   }
 }
+/* Disable sticky hover on touch screens, rely strictly on .active class */
+@media (hover: none) {
+  .nav-menu a:hover {
+    color: inherit !important; 
+  }
+  .nav-menu a.active {
+    color: var(--accent) !important;
+  }
+}
