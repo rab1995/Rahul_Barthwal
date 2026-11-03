@@ -581,3 +581,202 @@ p, a, span, li {
     color: var(--accent) !important;
   }
 }
+
+/* Tablet and phone layout refinements */
+/* Append to the END of assets/css/custom.css. Uses the existing section drawer. */
+
+/* Avoid 100vw including the scrollbar and pushing header controls off-screen. */
+#header {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Let flex and grid children shrink, including long university email addresses. */
+#about .content,
+#about .content .row > div,
+#contact .row > div {
+  min-width: 0;
+}
+
+#about .content li span,
+#contact .info a {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* The Formspree form has no .php-email-form class, so style it directly. */
+#contact form {
+  width: 100%;
+  min-width: 0;
+}
+
+#contact form .form-group {
+  margin-bottom: 1rem;
+}
+
+/* Keep drawer links accessible when a tablet is held horizontally. */
+.section-drawer {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Long navigation labels need the drawer on tablets and smaller laptops. */
+@media (max-width: 1399.98px) {
+  #header .container-fluid {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+
+  #header .logo {
+    flex-shrink: 0;
+    margin-right: auto !important;
+  }
+
+  #header .header-social-links {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 6px;
+    padding-right: 0;
+    margin-left: 0;
+  }
+
+  #header #navbar {
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  #header #navbar > ul {
+    display: none !important;
+  }
+
+  #header #themeToggle,
+  #header #drawerToggle {
+    flex-shrink: 0;
+    margin-left: 0;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px 10px;
+  }
+
+  #header #drawerToggle i {
+    font-size: 22px;
+    line-height: 1;
+  }
+}
+
+/* Bootstrap switches to narrow desktop columns at 992px; tablets need more room. */
+@media (max-width: 1399.98px) {
+  #main {
+    margin-top: 76px;
+  }
+
+  section {
+    padding: 44px 0;
+    scroll-margin-top: 92px;
+  }
+
+  #about .content {
+    line-height: 1.7;
+  }
+
+  /* Contact details should use the whole text column, rather than 4/12 and 6/12. */
+  #about .content > .row > .col-lg-4,
+  #about .content > .row > .col-lg-6 {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  #about .content > .row > div > ul > li {
+    display: grid;
+    grid-template-columns: 18px 66px minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: 8px;
+  }
+
+  #about .content > p.row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #about .content > p.row > b {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #contact > .container > .row > .col-lg-5,
+  #contact > .container > .row > .col-lg-7 {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  #contact > .container > .row > .col-lg-7 {
+    margin-top: 32px !important;
+  }
+
+  #portfolio .portfolio-item {
+    line-height: 1.65;
+  }
+}
+
+/* Portrait and biography share a row in both common tablet orientations. */
+@media (min-width: 768px) and (max-width: 1399.98px) {
+  #about > .container:not(.section-title) > .row > .col-lg-4 {
+    flex: 0 0 30%;
+    width: 30%;
+  }
+
+  #about > .container:not(.section-title) > .row > .col-lg-8 {
+    flex: 0 0 70%;
+    width: 70%;
+  }
+
+  #portfolio .portfolio-item {
+    width: 50%;
+  }
+}
+
+/* Phones retain a stacked layout, with a bounded portrait and logos. */
+@media (max-width: 767.98px) {
+  #about > .container:not(.section-title) > .row > .col-lg-4 > img {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #header .container-fluid {
+    gap: 6px;
+  }
+
+  #header .logo {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+
+  #header .header-social-links {
+    gap: 2px;
+  }
+
+  #header .header-social-links a {
+    padding-left: 4px;
+    font-size: 12px;
+  }
+
+  #header #navbar {
+    gap: 6px;
+  }
+
+  .search-row input {
+    min-width: 0;
+    flex-basis: 0;
+  }
+}
