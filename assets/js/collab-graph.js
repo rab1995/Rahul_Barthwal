@@ -13,7 +13,7 @@
      papers  : all joint papers shown in the hover card (title + optional url)
      work    : very short description of the joint work
      ------------------------------------------------------------------ */
-  const ME = { short: "Rahul" };
+  const ME = { short: "RB" };
 
   const PEOPLE = [
     { id: "rohde", name: "Christian Rohde", supervisorRole: "Postdoc supervisor", country: "Germany", inst: "University of Stuttgart",
@@ -325,9 +325,8 @@
       ? Math.round(w * 1.15)
       : Math.round(Math.max(470, Math.min(640, w * 0.58)));
     const cx = w / 2, cy = h / 2;
-    // Keep the network on a true circle. On wider screens reserve extra room
-    // for the outside labels; on phones labels are hidden and the circle can grow.
-    const labelGutter = mobile ? 8 : narrow ? 74 : 104;
+    // Leave room for node circles and, where shown, their outside labels.
+    const labelGutter = mobile ? 30 : narrow ? 88 : 116;
     const circleRadius = Math.max(0, Math.min(w / 2 - labelGutter, h / 2 - (mobile ? 38 : 46)));
     const rx = circleRadius;
     const ry = circleRadius;
