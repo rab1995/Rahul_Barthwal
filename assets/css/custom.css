@@ -122,6 +122,38 @@ a:hover u{
 #publications a:hover{
   color: var(--accent);
 }
+
+/* Keep text sections evenly spaced when lists are split across separate ULs. */
+#publications .container > .row > .section-title,
+#preprints .section-title{
+  margin-bottom: 24px;
+}
+#publications ul,
+#preprints ul{
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+#publications ul:last-child,
+#preprints ul:last-child{
+  margin-bottom: 0;
+}
+#preprints .section-title.mt-4{
+  margin-top: 32px !important;
+}
+#preprints .reviewer-title{
+  margin-bottom: 12px;
+}
+#preprints .reviewer-title p{
+  margin: 0;
+}
+#preprints .reviewer-list{
+  margin: 0;
+  padding-left: 20px;
+}
+#preprints .reviewer-list li{
+  padding: 4px 0;
+  line-height: 1.5;
+}
 /* Skills visibility in dark mode */
 body.theme-dark .skills .progress .skill,
 body.theme-dark .skills .progress .skill .val{
