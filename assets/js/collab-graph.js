@@ -321,14 +321,14 @@
     lastW = w;
 
     const narrow = w < 900;
-    const h = mobile
-      ? Math.round(w * 1.15)
-      : Math.round(Math.max(470, Math.min(640, w * 0.58)));
+    // A square viewBox gives the network a consistent circular footprint on
+    // phones, tablets, and desktop. The wider wrapper can still center it.
+    const h = w;
     const cx = w / 2, cy = h / 2;
     // Keep the network on a true circle. On wider screens reserve extra room
     // for the outside labels; on phones labels are hidden and the circle can grow.
-    const labelGutter = mobile ? 8 : narrow ? 74 : 104;
-    const circleRadius = Math.max(0, Math.min(w / 2 - labelGutter, h / 2 - (mobile ? 38 : 46)));
+    const labelGutter = mobile ? 32 : narrow ? 82 : 112;
+    const circleRadius = Math.max(0, Math.min(w / 2 - labelGutter, h / 2 - labelGutter));
     const rx = circleRadius;
     const ry = circleRadius;
     const R = mobile ? 17 : 21;
