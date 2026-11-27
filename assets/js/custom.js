@@ -287,19 +287,24 @@
       if (e.key === "Escape" && document.body.classList.contains("drawer-open")) close();
     });
 
-    // Highlight active link in drawer (scroll spy)
+    // Highlight the section nearest the top of the usable viewport. An
+    // IntersectionObserver can stay on a tall section while scrolling past it.
     const drawerLinks = $$(".drawer-link", drawer);
-    const targets = sectionLinks.map(s => document.getElementById(s.href.slice(1))).filter(Boolean);
-    const obs = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
+    const updateActiveDrawerLink = () => {
+      const marker = window.scrollY + Math.min(180, window.innerHeight * 0.3);
+      let activeTarget = targets[0];
+      targets.forEach(target => {
+        if (target.offsetTop <= marker) activeTarget = target;
+      });
       drawerLinks.forEach(l => l.classList.remove("active"));
-      const active = drawerLinks.find(l => l.getAttribute("href") === `#${visible.target.id}`);
+      const active = drawerLinks.find(l => l.getAttribute("href") === `#${activeTarget?.id}`);
       if (active) active.classList.add("active");
-    }, { threshold: [0.25, 0.5, 0.75] });
-    targets.forEach(t => obs.observe(t));
+    };
+    const targets = sectionLinks.map(s => document.getElementById(s.href.slice(1))).filter(Boolean);
+    window.addEventListener("scroll", updateActiveDrawerLink, { passive: true });
+    window.addEventListener("resize", updateActiveDrawerLink, { passive: true });
+    window.addEventListener("load", updateActiveDrawerLink, { once: true });
+    updateActiveDrawerLink();
   }
 
   document.addEventListener("DOMContentLoaded", () => {
