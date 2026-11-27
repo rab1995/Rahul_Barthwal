@@ -16,7 +16,7 @@
   const ME = { short: "Rahul" };
 
   const PEOPLE = [
-    { id: "rohde", name: "Christian Rohde", country: "Germany", inst: "University of Stuttgart",
+    { id: "rohde", name: "Christian Rohde", supervisorRole: "Postdoc supervisor", country: "Germany", inst: "University of Stuttgart",
       url: "https://www.ians.uni-stuttgart.de/institute/team/Rohde/",
       paper: "https://doi.org/10.1137/25M1736992", work: "Thin-film flows, hyperbolic approximations",
       papers: [
@@ -50,14 +50,14 @@
       paper: "https://link.springer.com/article/10.1007/s10915-025-03151-1", work: "Generalized Riemann solver for thin films",
       papers: [{ title: "A generalized Riemann problem solver for a hyperbolic model governing two-layer thin film flow", url: "https://link.springer.com/article/10.1007/s10915-025-03151-1" }] },
     { id: "biswas", name: "Biswarup Biswas", country: "India", inst: "Mahindra University, Hyderabad",
-      url: "https://www.mahindrauniversity.edu.in/faculty/biswarup-biswas/",
+      url: "https://biswarupbiswas.github.io/",
       paper: "https://doi.org/10.48550/arXiv.2606.17862", work: "WENO scheme for a two-layer thin-film model",
       papers: [{ title: "Riemann invariant-based alternative WENO scheme for a two-layer thin film model", url: "https://doi.org/10.48550/arXiv.2606.17862" }] },
     { id: "kumar", name: "Rakesh Kumar", country: "India", inst: "Mahindra University, Hyderabad",
-      url: "https://www.mahindrauniversity.edu.in/faculty/rakesh-kumar/",
+      url: "https://sites.google.com/view/rakesh21/home",
       paper: "https://doi.org/10.48550/arXiv.2606.17862", work: "WENO scheme for a two-layer thin-film model",
       papers: [{ title: "Riemann invariant-based alternative WENO scheme for a two-layer thin film model", url: "https://doi.org/10.48550/arXiv.2606.17862" }] },
-    { id: "rajasekhar", name: "T. Raja Sekhar", label: "T. Raja Sekhar", country: "India", inst: "IIT Kharagpur",
+    { id: "rajasekhar", name: "T. Raja Sekhar", label: "T. Raja Sekhar", supervisorRole: "PhD supervisor", country: "India", inst: "IIT Kharagpur",
       url: "https://www.iitkgp.ac.in/department/MA/faculty/ma-trajasekhar",
       paper: "https://link.springer.com/article/10.1007/s00033-024-02354-0", work: "Riemann problems, transonic flow",
       papers: [
@@ -70,8 +70,11 @@
         { title: "On the existence and regularity of solutions of semi-hyperbolic patches to 2-D Euler equations with van der Waals gas", url: "https://onlinelibrary.wiley.com/doi/10.1111/sapm.12449" },
         { title: "Simple waves for two-dimensional magnetohydrodynamics with extended Chaplygin gas", url: "https://link.springer.com/article/10.1007/s13226-021-00116-6" }
       ] },
+    { id: "gp-rajasekhar", name: "G. P. Raja Sekhar", label: "G. P. Raja Sekhar", country: "India",
+      paper: "https://onlinelibrary.wiley.com/doi/10.1002/mma.8977", work: "Thin-film Riemann problems",
+      papers: [{ title: "Construction of solutions of a two-dimensional Riemann problem for a thin film model of a perfectly soluble anti-surfactant solution", url: "https://onlinelibrary.wiley.com/doi/10.1002/mma.8977" }] },
     { id: "pandey", name: "Anamika Pandey", country: "India", inst: "IIT Kharagpur",
-      url: "https://www.researchgate.net/profile/Anamika-Pandey-21",
+      url: "https://sites.google.com/view/pandeyanamika/home",
       paper: "https://doi.org/10.1016/j.amc.2025.129378", work: "2-D Keyfitz–Kranzer type model",
       papers: [{ title: "Construction of solutions to a Riemann problem for a two-dimensional Keyfitz-Kranzer type model governing thin film flow", url: "https://doi.org/10.1016/j.amc.2025.129378" }] },
     { id: "sen", name: "Anupam Sen", country: "India", inst: "VIT Bhopal",
@@ -113,7 +116,8 @@
     ["rohde", "oeffner"], ["rohde", "dhaouadi"], ["rohde", "wang"], ["rohde", "sen"],
     ["rohde", "friedrich"], ["rohde", "joussen"], ["rohde", "lienstromberg"],
     ["oeffner", "singh"], ["oeffner", "zawallich"], ["singh", "zawallich"],
-    ["biswas", "kumar"], ["joussen", "lienstromberg"], ["rajasekhar", "pandey"]
+    ["biswas", "kumar"], ["joussen", "lienstromberg"], ["rajasekhar", "pandey"],
+    ["rajasekhar", "gp-rajasekhar"]
   ];
 
   const COUNTRY_ORDER = ["Germany", "India", "China", "Italy", "France", ""];   // "" = Country not set
@@ -231,6 +235,7 @@
       d.className = cls; d.innerHTML = html; tip.appendChild(d); return d;
     };
     add("cg-tip-name", p.name);
+    if (p.supervisorRole) add("cg-tip-work", p.supervisorRole);
     const where = [p.inst, p.country].filter(Boolean).join(" · ");
     const meta = add("cg-tip-meta", `<span class="cg-dot" style="--c:${ccolor(p.country)}"></span>${where || UNSET}`);
     if (!where) meta.classList.add("is-muted");
@@ -317,7 +322,7 @@
 
     const narrow = w < 900;
     const h = mobile
-      ? Math.max(600, Math.min(760, Math.round(w * 1.9)))
+      ? Math.round(w * 1.15)
       : Math.round(Math.max(470, Math.min(640, w * 0.58)));
     const cx = w / 2, cy = h / 2;
     const rx = w / 2 - (mobile ? 28 : narrow ? 82 : 120);
@@ -369,7 +374,7 @@
       const P = pos[p.id];
       const g = el("g", {
         class: "cg-node", tabindex: "0", "data-id": p.id,
-        role: "link", "aria-label": `${p.name}${p.inst ? ", " + p.inst : ""}${p.country ? ", " + p.country : ""}`
+        role: "link", "aria-label": `${p.name}${p.supervisorRole ? ", " + p.supervisorRole : ""}${p.inst ? ", " + p.inst : ""}${p.country ? ", " + p.country : ""}`
       }, svg);
       g.style.setProperty("--c", ccolor(p.country));
       if (!primaryLink(p)) g.classList.add("no-link");
