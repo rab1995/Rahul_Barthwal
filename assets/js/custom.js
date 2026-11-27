@@ -314,7 +314,23 @@
     mountCopyHover();
     mountAOSOptions();
     mountSectionDrawer();
+    mountTestimonialForm();
   });
+
+  function mountTestimonialForm() {
+    const toggle = $(".testimonial-toggle");
+    const panel = $("#testimonialForm");
+    if (!toggle || !panel) return;
+    toggle.addEventListener("click", () => {
+      const opening = panel.hidden;
+      panel.hidden = !opening;
+      toggle.setAttribute("aria-expanded", String(opening));
+      toggle.innerHTML = opening
+        ? 'Close form <i class="bi bi-x-lg"></i>'
+        : 'Write a testimonial <i class="bi bi-pencil-square"></i>';
+      if (opening) panel.querySelector("textarea")?.focus({ preventScroll: true });
+    });
+  }
 })();
 
 // assets/js/custom.js
