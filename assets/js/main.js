@@ -225,6 +225,10 @@
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
+    },
+    navigation: {
+      nextEl: '.testimonial-next',
+      prevEl: '.testimonial-prev'
     }
   });
 

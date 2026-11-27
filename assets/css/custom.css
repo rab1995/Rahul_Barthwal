@@ -1032,6 +1032,43 @@ body.theme-dark .collab-cta .btn-soft i{ color: inherit; }
   cursor: pointer;
   font: inherit;
 }
+.testimonial-controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 22px;
+}
+.testimonial-controls .testimonial-prev,
+.testimonial-controls .testimonial-next{
+  position: static;
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+  cursor: pointer;
+  transform: none;
+}
+.testimonial-controls .testimonial-prev::after,
+.testimonial-controls .testimonial-next::after{
+  display: none;
+}
+.testimonial-controls .testimonial-prev:hover,
+.testimonial-controls .testimonial-next:hover{
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+}
+.testimonial-controls .swiper-pagination{
+  position: static;
+  width: auto;
+}
+.testimonial-controls .swiper-pagination-bullet-active{
+  background: var(--accent);
+}
 @media (max-width: 575.98px){
   .testimonial-form-fields{ grid-template-columns: 1fr; }
   .testimonial-form-panel{ padding: 16px; }
