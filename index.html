@@ -62,6 +62,13 @@
           <!--li><a href="#hero" class="nav-link scrollto active"><i class="fa fa-home fa-2x"></i> <span>Home</span></a></li-->
           <li><a href="#about" class="nav-link scrollto"><i class="fa fa-user fa-2x"></i> <span>About</span></a></li>
           <li><a href="#publications" class="nav-link scrollto"><i class="fa fa-book fa-2x"></i> <span>Research</span></a></li>
+          <!-- Uncomment when the Projects section is ready:
+          <li><a href="#projects" class="nav-link scrollto"><i class="fa-solid fa-diagram-project fa-2x"></i> <span>Projects</span></a></li>
+          -->
+          <!-- Uncomment when the Research Group section is ready:
+          <li><a href="#research-group" class="nav-link scrollto"><i class="fa-solid fa-people-group fa-2x"></i> <span>Research Group</span></a></li>
+          -->
+          <li><a href="#collaborations" class="nav-link scrollto"><i class="fa-solid fa-handshake fa-2x"></i> <span>Collaborations</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="fa fa-file fa-2x"></i> <span>Curriculum Vitae</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto"><i class="fa-solid fa-microphone fa-2x"></i> <span>Workshops and Conferences</span></a></li>
           <li><a href="#miscellaneous" class="nav-link scrollto"><i class="fa fa-ghost fa-2x"></i> <span>Miscellaneous</span></a></li>
@@ -274,6 +281,83 @@ A key pillar of my research is designing high-order, structure-preserving numeri
         </div> <!-- End row -->
       </div>
     </section><!-- End Preprints Section -->
+
+    <!-- Projects section hidden for now. Uncomment this block and its navigation link to restore it.
+    <section id="projects" class="projects">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Funded research awards and submitted project proposals.</p>
+        </div>
+
+        <div class="proj-grid">
+          <article class="proj-card">
+            <div class="proj-head">
+              <h4>Ramanujan Fellowship</h4>
+              <span class="proj-status is-funded">Funded</span>
+            </div>
+          </article>
+          <article class="proj-card">
+            <div class="proj-head">
+              <h4>INSPIRE Award</h4>
+              <span class="proj-status is-funded">Funded</span>
+            </div>
+          </article>
+          <article class="proj-card">
+            <div class="proj-head">
+              <h4>University of Stuttgart project proposal</h4>
+              <span class="proj-status is-submitted">Applied</span>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+    -->
+
+    <!-- Research Group template hidden until there is a group. Uncomment this block and its navigation link, then replace the placeholders.
+    <section id="research-group" class="research-group section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Research Group</h2>
+          <p>[Add a short description of the group and its research focus.]</p>
+        </div>
+
+        <h3>Group Members</h3>
+        <ul>
+          <li><strong>[Name]</strong> — [Role, research topic, and profile link]</li>
+          <li><strong>[Name]</strong> — [Role, research topic, and profile link]</li>
+        </ul>
+      </div>
+    </section>
+    -->
+
+    <!-- ======= Collaborations Section ======= -->
+    <section id="collaborations" class="collaborations section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Collaborations</h2>
+          <p>The people I have written papers with, grouped by country. Hover over a node, or tap/select it on a touch screen, to see our joint work and paper links.</p>
+        </div>
+
+        <div class="cg-wrap">
+          <div class="cg-legend" id="cgLegend" aria-label="Filter by country"></div>
+          <div class="cg-stage" id="cgStage"></div>
+          <ul class="cg-list" id="cgList"></ul>
+        </div>
+
+        <div class="collab-cta">
+          <div>
+            <h4>Interested in working together?</h4>
+            <p>I am always happy to discuss new problems and possible collaborations in hyperbolic PDEs, thin-film flows and numerical analysis.</p>
+          </div>
+          <a href="#contact" class="btn-soft btn-accent scrollto">Get in touch <i class="bi bi-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </section><!-- End Collaborations Section -->
   
   <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume">
@@ -1137,6 +1221,7 @@ It is great to learn about the theoretical background behind numeric methods and
    <!-- Template Main JS File -->
    <script src="assets/js/main.js"></script>
    <script src="assets/js/custom.js" defer></script>
+   <script src="assets/js/collab-graph.js" defer></script>
   </main>
  </body>
 
