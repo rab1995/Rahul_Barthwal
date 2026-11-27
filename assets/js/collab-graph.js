@@ -325,8 +325,12 @@
       ? Math.round(w * 1.15)
       : Math.round(Math.max(470, Math.min(640, w * 0.58)));
     const cx = w / 2, cy = h / 2;
-    const rx = w / 2 - (mobile ? 28 : narrow ? 82 : 120);
-    const ry = h / 2 - (mobile ? 55 : 52);
+    // Keep the network on a true circle. On wider screens reserve extra room
+    // for the outside labels; on phones labels are hidden and the circle can grow.
+    const labelGutter = mobile ? 8 : narrow ? 74 : 104;
+    const circleRadius = Math.max(0, Math.min(w / 2 - labelGutter, h / 2 - (mobile ? 38 : 46)));
+    const rx = circleRadius;
+    const ry = circleRadius;
     const R = mobile ? 17 : 21;
 
     if (svg) svg.remove();
