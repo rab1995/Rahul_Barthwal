@@ -657,8 +657,8 @@ p, a, span, li {
   overscroll-behavior: contain;
 }
 
-/* Long navigation labels need the drawer on tablets and smaller laptops. */
-@media (max-width: 1399.98px) {
+/* Use the section drawer where the full list cannot fit comfortably. */
+@media (max-width: 1199.98px) {
   #header .container-fluid {
     flex-wrap: nowrap;
     gap: 12px;
@@ -700,6 +700,72 @@ p, a, span, li {
   #header #drawerToggle i {
     font-size: 22px;
     line-height: 1;
+  }
+}
+
+/* Keep every section name visible on laptop widths without squeezing the header. */
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+  #header .container-fluid {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  #header .logo {
+    flex: 0 0 auto;
+    margin-right: 22px !important;
+    font-size: 27px;
+  }
+
+  #header .header-social-links {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 3px;
+    padding: 0;
+    margin: 0 10px 0 0;
+  }
+
+  #header .header-social-links a {
+    padding-left: 3px;
+    font-size: 13px;
+  }
+
+  #header #navbar {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: flex-end;
+  }
+
+  #header #navbar > ul {
+    display: flex !important;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  #header #navbar > ul > li {
+    flex: 0 0 auto;
+    padding: 8px 0 8px 9px;
+  }
+
+  #header #navbar > ul > li > a {
+    gap: 5px;
+    font-size: 13px;
+  }
+
+  #header #drawerToggle {
+    display: inline-flex;
+    flex: 0 0 36px;
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    min-height: 36px;
+    margin-left: 4px;
+    padding: 0;
+  }
+
+  #header #themeToggle {
+    flex: 0 0 auto;
+    margin-left: 4px;
+    padding: 8px;
   }
 }
 
